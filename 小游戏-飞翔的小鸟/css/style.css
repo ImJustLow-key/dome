@@ -1,0 +1,92 @@
+*{margin: 0;padding: 0}
+
+#fbWrap{
+   
+     width: 343px;
+     height: 480px;
+   
+     margin: 0px auto;
+     background: url("../img/bg.jpg") no-repeat;
+     background-size: : 100% 100%;
+     overflow: hidden;
+     position: relative;
+}
+
+#head{
+  position: absolute;
+  left: 50px;
+  top: 150px;
+}
+#head span{
+   background: url("../img/bird0.png") no-repeat;
+   position: absolute;
+   width: 40px;
+  height: 26px;
+  right: 0px;
+  top: 20px;
+}
+
+#scoring{
+	position: absolute;
+	left: 50%;
+	top: 40px;
+	z-index: 2;
+	font-size: 40px;
+	color: #fff;
+
+}
+#menu{
+
+	position: absolute;
+	left: 40%;
+	top: 60%;
+}
+#bird{
+	position: absolute;
+	left: 50px;
+    top: 10%;
+    z-index: 10;
+    display: none;
+}
+.die{
+	transition: 3s;
+	top:393px !important;
+	z-index: 99;
+}
+#ductWrap li{
+     position: absolute;
+     top: 0;
+     left: 350px;
+     width: 62px;
+     height: 423px;
+     list-style: none;
+    
+}
+
+.duct_up{
+	background: url("../img/up_mod.png") repeat-y;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+
+	
+}
+
+.duct_up img{
+	position: absolute;
+	bottom:0;
+}
+
+.duct_down{
+	background: url("../img/down_mod.png") repeat-y;
+	
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+
+}
+
+.duct_down img{
+     position: absolute;
+     top: 0;
+}
