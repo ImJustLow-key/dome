@@ -1,0 +1,100 @@
+﻿*{margin: 0;padding: 0}
+body{font-family: "微软雅黑"}
+ul li{list-style: none;}
+a{text-decoration: none;}
+
+
+.container{
+     width: 300px;
+     height: 500px;
+     background: #e0e0e0;
+     margin: 100px auto;
+     padding: 50px 50px 0;
+     box-shadow: 0px 0px 2px 2px #000;
+}
+.container .left{
+   float: left;
+
+}
+.container .right{
+   float: right;
+
+}
+.main{
+
+	width: 284px;
+	height: 284px;
+	background: rgb(100,200,250);
+	margin: 80px auto 20px;
+}
+.main .list1{
+     width: 100%px;
+	
+}
+.main .list1>img{
+
+	width: 100%;
+	display: block;
+   
+}
+img{
+   cursor: pointer;
+   transform-style:prserve-3d;
+
+}
+img:hover{
+    transition: rotateZ(360deg);
+    -webkit-transform:rotateZ(360deg);
+    transition: all ease 1s; 
+}
+
+button{
+     width:200px;
+     height: 40px;
+     border: 0;
+     background: #f60;
+     outline: none;
+     color: #fff;
+     font-size: 20px;
+     font-family: "微软雅黑";
+     border-radius: 3px;
+  
+     position: relative;
+     left: 14%;
+     cursor: pointer;
+     margin-top:5px; 
+}
+button:hover{
+	 background: #000;
+}
+button#turnoff{
+	width: 100pox;
+	background: blue;
+	margin-top:5px; 
+}	
+#turnoff:hover{
+      background:green;
+
+}
+
+
+#back{
+  width:300px;
+  height: 500px;
+  background: #000;
+  margin: 100px auto;
+  padding: 50px 50px 0;
+  position:absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7;
+  color: #fff;
+  display: none;
+}
+h1{
+   text-align: center;
+   padding-top: 200px;
+   font-size: 50px;
+}
+h1 a{color: #fff;}
