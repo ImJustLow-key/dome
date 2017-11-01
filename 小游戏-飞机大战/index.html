@@ -1,21 +1,24 @@
 <!DCCTYPE html>
 <html>
   <head>
-     <meta charset="gb2312">
+    <meta charset="utf-8">
   
      <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
      <style type="text/css">
       *{
               text-align:center;
-
+              margin: 0;
+              padding: 0;
              
         }
      
         #menu{
+           position: absolute;
+           top: 0;
+           left: 50%;
            width:300px;
            height:550px;
-          border: 1px solid red;
-           margin:0 auto;
+           margin-left: -150px;
            background-image:url(img/menu.png);
                    //display:none;
        }
@@ -40,18 +43,31 @@
          display:none;
 
        }
+       .buttom{
+        position: absolute;
+        top:435px;
+        left: 50%;
+        margin-left: -150px;
+       }
        #can1{
           display:none;
         }
       </style>
   </head>
   <body > 
-     
+       <div class="buttom">
+         <img src="img/s.png" width="40" height="40" style="display: block;margin: 0 auto;margin-bottom: -5px" ontouchstart="S()" ontouchend="ST()">
+         <img src="img/z.png" width="40" height="40" style="display: inline-block;margin-right:10px" ontouchstart="Z()" ontouchend="ZT()">
+         <img src="img/y.png" width="40" height="40" style="display: inline-block;margin-left:10px" ontouchstart="Y()" ontouchend="YT()">
+         <img src="img/x.png" width="40" height="40" 
+         style="display: block;margin: 0 auto;margin-top: -5px"
+         ontouchstart="X()" ontouchend="XT()">
+       </div>
        <div id="menu">
            <div id="img1" onClick="StartGame()"></div>    
       </div> 
-      <div id="over"><b id="c">ÓÎÏ·Ê§°Ü</b>&nbsp;&nbsp;<b id="b">µÃ·Ö£º</b></div>
-      <canvas id="can1" width="300px" height="550px"  onmousemove="getonmousemove()">ÄúµÄÓÎÀÀÆ÷²»Ö§³Öhtml5</canvas>
+      <div id="over"><b id="c">æ¸¸æˆå¤±è´¥</b>&nbsp;&nbsp;<b id="b">å¾—åˆ†ï¼š</b></div>
+      <canvas id="can1" width="300px" height="550px"  onmousemove="getonmousemove()">æ‚¨çš„æ¸¸è§ˆå™¨ä¸æ”¯æŒhtml5</canvas>
      
       <br>
        <span id="a"></span>
@@ -63,9 +79,9 @@
               document.body.removeChild(menu);
               
               can1.style.display="inline"; 
-              c=window.setInterval("RefreshMap()",40); //¿ªÆôË¢ĞÂµØÍ¼¶¨Ê±Æ÷
-               instanceEnemy(); //Éú³ÉµĞÈË
-              a=window.setInterval("thisPlane.showBullet()",500);  //¿ªÆô·¢Éä×Óµ¯¶¨Ê±Æ÷
+              c=window.setInterval("RefreshMap()",40); //å¼€å¯åˆ·æ–°åœ°å›¾å®šæ—¶å™¨
+               instanceEnemy(); //ç”Ÿæˆæ•Œäºº
+              a=window.setInterval("thisPlane.showBullet()",500);  //å¼€å¯å‘å°„å­å¼¹å®šæ—¶å™¨
              
            }
 

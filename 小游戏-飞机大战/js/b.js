@@ -1,25 +1,25 @@
   var can1=document.getElementById("can1");
               var cxt=can1.getContext("2d");
               
-              var hit=0;                                          //»÷ÖĞµÄµĞÈËÊı     
+              var hit=0;                                          //å‡»ä¸­çš„æ•Œäººæ•°     
                    
-              var nothit=0;                                       //Ã»ÓĞ»÷ÖĞµÄµĞÈËÊı
-              var time=2000;                                       //·¢Éä×Óµ¯µÄÊ±¼ä
-              var thisBullets=new Array();                        //ÊµÀı±¾×Óµ¯Êı×é
-              var enemys=new Array();                               //ÊµÀıµĞ¾üÊı×é
-              var booms=new Array();                                  //ÊµÀı Õ¨µ¯×é
-              var enemyBullets=new Array();                             //¶¨ÒåµĞÈË×Óµ¯Êı×é
+              var nothit=0;                                       //æ²¡æœ‰å‡»ä¸­çš„æ•Œäººæ•°
+              var time=2000;                                       //å‘å°„å­å¼¹çš„æ—¶é—´
+              var thisBullets=new Array();                        //å®ä¾‹æœ¬å­å¼¹æ•°ç»„
+              var enemys=new Array();                               //å®ä¾‹æ•Œå†›æ•°ç»„
+              var booms=new Array();                                  //å®ä¾‹ ç‚¸å¼¹ç»„
+              var enemyBullets=new Array();                             //å®šä¹‰æ•Œäººå­å¼¹æ•°ç»„
               var lifes=new Array();
-              var bulletbosss=new Array();                              //  boss×Óµ¯Êı×é
-              var hitboss=0;                                            //»÷ÖĞbossÊıÁ¿
+              var bulletbosss=new Array();                              //  bosså­å¼¹æ•°ç»„
+              var hitboss=0;                                            //å‡»ä¸­bossæ•°é‡
               var boss;                     //boss  duixiang
-             //ÊµÀıÉúÃü
+             //å®ä¾‹ç”Ÿå‘½
               for(var i=0;i<3;i++){
-                  var life=new Life(i*37,517);
+                  var life=new Life(i*(-37)+260,517);
                   lifes[i]=life;
 
               } 
-               //Çå³ıÊı×é
+               //æ¸…é™¤æ•°ç»„
               function g(){
                    for(var i=0;i<thisBullets.length;i++){
                     var thisBullet=thisBullets[i];
@@ -54,21 +54,21 @@
                    }
              }
                                  
-              var thisPlane=new ThisPlane(126.5,400); //ÊµÀı±¾·É»ú
+              var thisPlane=new ThisPlane(126.5,400); //å®ä¾‹æœ¬é£æœº
              
-              var a=null;   //¸ô500ºÁÃë·¢Éä×Óµ¯
+              var a=null;   //éš”500æ¯«ç§’å‘å°„å­å¼¹
              
-              var b=null;                                               //µĞÈË³öÏÖÏß³Ì
-                              //Éú³öµĞÈË
+              var b=null;                                               //æ•Œäººå‡ºç°çº¿ç¨‹
+                              //ç”Ÿå‡ºæ•Œäºº
                
-              function instanceEnemy(){                                //Éú³öµĞÈËº¯Êı
+              function instanceEnemy(){                                //ç”Ÿå‡ºæ•Œäººå‡½æ•°
                   
                 
                   var direction=Math.round(Math.random()*2);
                   var type=Math.round(Math.random()*2);
                      switch(direction){
-                         case 0:             //×ó
-                     if(hit>=15&&hit<100){                                                                //hit´óÓÚµÈÓÚÄ³¸öÊıµÄÊ±ºòÊµÀı²»Í¬µÄ×Óµ¯
+                         case 0:             //å·¦
+                     if(hit>=15&&hit<100){                                                                //hitå¤§äºç­‰äºæŸä¸ªæ•°çš„æ—¶å€™å®ä¾‹ä¸åŒçš„å­å¼¹
                       var enemy=new Enemy(-50,0,type,1,2.5);}
 
 
@@ -79,7 +79,7 @@
                        var enemy=new Enemy(-50,0,type,0.5,1.5);}
                              
                            break;   
-                         case 1:            //ÓÒ
+                         case 1:            //å³
                     if(hit>=15&&hit<100){
                       var enemy=new Enemy(300,0,type,-1,2.5);}
                     else if(hit>=100){ var enemy=new Enemy(300,0,type,-1.5,3.5);}
@@ -88,7 +88,7 @@
                         var enemy=new Enemy(300,0,type,-0.5,1.5);}
 
                            break;
-                         case 2:           //ÉÏ
+                         case 2:           //ä¸Š
                          var x=Math.round(Math.random()*150+50);
                       if(hit>=15&&hit<100){
                        var enemy=new Enemy(x,-50,type,0,2.5);}
@@ -107,7 +107,7 @@
               }
 
                window.setInterval("enemyshouw()",7000); 
-              //Éú³öµĞÈË·¢Éä×Óµ¯º¯Êı
+              //ç”Ÿå‡ºæ•Œäººå‘å°„å­å¼¹å‡½æ•°
               function enemyshouw(){
 
 
@@ -118,12 +118,12 @@
                 }
 
               }
-              var bg1=new Bg(0,-90,1);//ÊµÀıµÚÒ»¸ö±³¾°¶ÔÏó
-              var bg2=new Bg(0,-625,1);//ÊµÀıµÚ¶ş¸ö±³¾°¶ÔÏó
+              var bg1=new Bg(0,-90,1);//å®ä¾‹ç¬¬ä¸€ä¸ªèƒŒæ™¯å¯¹è±¡
+              var bg2=new Bg(0,-625,1);//å®ä¾‹ç¬¬äºŒä¸ªèƒŒæ™¯å¯¹è±¡
               
               
               
-          //¶¨Òå±¾·É»ú¶ÔÏó
+          //å®šä¹‰æœ¬é£æœºå¯¹è±¡
           function ThisPlane(x,y){
                
               this.x=x;
@@ -136,12 +136,12 @@
                    
                   //var timer= window.setInterval("thisBullets["+(thisBullets.length-1)+"].run()",40);
                   
-                 //thisBullets[thisBullets.length-1].timer=timer;       //ÎªÍ£Ö¹Ïß³Ì×öÆÌµæ
+                 //thisBullets[thisBullets.length-1].timer=timer;       //ä¸ºåœæ­¢çº¿ç¨‹åšé“ºå«
                     
               }
            
           }
-           //¶¨Òå±¾×Óµ¯
+           //å®šä¹‰æœ¬å­å¼¹
           function ThisBullet(x,y,speed){
                  this.x=x;
                  this.y=y;
@@ -157,17 +157,17 @@
           }
          
             
-             //¶¨ÒåµĞÈË¶ÔÏó
+             //å®šä¹‰æ•Œäººå¯¹è±¡
           function Enemy(x,y,type,speedX,speedY){
                this.x=x;
                this.y=y;
-               this.i=0;                                         //Í¼Æ¬Ö¡Êı
-               this.speedX=speedX;                                     //ÒÆ¶¯µÄx×ø±ê
-               this.speedY=speedY;                                     //ÒÆ¶¯µÄy×ø±ê
+               this.i=0;                                         //å›¾ç‰‡å¸§æ•°
+               this.speedX=speedX;                                     //ç§»åŠ¨çš„xåæ ‡
+               this.speedY=speedY;                                     //ç§»åŠ¨çš„yåæ ‡
                this.isLive=true;
                this.type=type;                                        
                this.run=function(){
-                    if(this.x>-120&&this.x<420&&this.y>-72&&this.y<620){              //ÅĞ¶ÏµĞÈË³ö½ç
+                    if(this.x>-120&&this.x<420&&this.y>-72&&this.y<620){              //åˆ¤æ–­æ•Œäººå‡ºç•Œ
 
                         this.x=this.x+speedX;
                         this.y=this.y+speedY;
@@ -178,7 +178,7 @@
                this.showBullet=function(){
                    if(this.isLive){
                        //alert("dfds");
-                           switch(this.type){                                        //¸ù¾İ²»Í¬µÄµĞÈË ÊµÀı²»Í¬Î»ÖÃµÄ×Óµ¯
+                           switch(this.type){                                        //æ ¹æ®ä¸åŒçš„æ•Œäºº å®ä¾‹ä¸åŒä½ç½®çš„å­å¼¹
                          case 0: 
                        if(hit>=40){var enemyBullet =new EnemyBullet(this.x+17,this.y+21,4);}else{            
                         var enemyBullet =new EnemyBullet(this.x+17,this.y+21,2);}
@@ -200,15 +200,15 @@
                }
            }
            
-           //¶¨Òå±¬Õ¨Àà
+           //å®šä¹‰çˆ†ç‚¸ç±»
            function Boom(x,y){
                this.x=x;      
                this.y=y;
-               this.i=0;                               //±¬Õ¨Àà Ö¡Êı
+               this.i=0;                               //çˆ†ç‚¸ç±» å¸§æ•°
                
            }
 
-           //¶¨ÒåµĞÈË×Óµ¯¶ÔÏó
+           //å®šä¹‰æ•Œäººå­å¼¹å¯¹è±¡
            function EnemyBullet(x,y,speed){
 
                this.x=x;
@@ -222,7 +222,7 @@
                   }else{this.isLive=false;}
                }
            }
-           //¶¨Òåboss¶ÔÏó
+           //å®šä¹‰bosså¯¹è±¡
            function Boss(x,y){
               this.x=x;
               this.y=y;
@@ -246,7 +246,7 @@
 
              }
            }
-           //¿ØÖÆboss×Óµ¯·¢Éäº¯Êı
+           //æ§åˆ¶bosså­å¼¹å‘å°„å‡½æ•°
            
            function show(){
                 if(boss!=null){
@@ -254,7 +254,7 @@
                 setTimeout("show()", 2000);
                 }
            }
-           //¶¨Òåboss×Óµ¯¶ÔÏñ
+           //å®šä¹‰bosså­å¼¹å¯¹åƒ
            function Bulletboss(x,y,speed){
                this.x=x;
                this.y=y;
@@ -271,7 +271,7 @@
                }
 
            }
-           //¶¨ÒåÉúÃü¶ÔÏó
+           //å®šä¹‰ç”Ÿå‘½å¯¹è±¡
            function Life(x,y){
               this.x=x;
 
@@ -280,7 +280,7 @@
 
 
            }
-          //¶¨Òå±³¾°¶ÔÏó
+          //å®šä¹‰èƒŒæ™¯å¯¹è±¡
           function Bg(x,y,speed){
              this.x=x;
              this.y=y;
@@ -291,7 +291,7 @@
              }
             
           } 
-            //»­³ö±³¾°Í¼Ïñ
+            //ç”»å‡ºèƒŒæ™¯å›¾åƒ
           function darwbg(bg){
                
                var bgimg=new Image();
@@ -304,7 +304,7 @@
           }
            
 
-           //ÅĞ¶Ï±³¾°Í¼Æ¬³ö½çÓë»­³ö±³¾°Í¼Æ¬
+           //åˆ¤æ–­èƒŒæ™¯å›¾ç‰‡å‡ºç•Œä¸ç”»å‡ºèƒŒæ™¯å›¾ç‰‡
           function outbg(){
                darwbg(bg1);
                darwbg(bg2);
@@ -314,7 +314,7 @@
                if(bg2.y==-1||bg2.y==0||bg2.y==1){bg1.y=-535;}
           }
 
-            //»­³ö±¾·É»ú
+            //ç”»å‡ºæœ¬é£æœº
           function darwthisPlane(){
                  var thisPlaneImg=new Image();
                  thisPlaneImg.src="img/thisPlane.png";
@@ -323,7 +323,7 @@
                   }
                 
           }
-          //»­³ö±¾×Óµ¯
+          //ç”»å‡ºæœ¬å­å¼¹
           function darwThisBullet(thisBullet){
               if(thisBullet.isLive){
                   
@@ -338,11 +338,11 @@
 
 
            
-          //»­³öµĞÈË
+          //ç”»å‡ºæ•Œäºº
           function darwenemy(enemy){
             if(enemy.isLive){
                 switch(enemy.type){
-                  case 0:                //Ñ¼×Ó
+                  case 0:                //é¸­å­
                  
                       var Img=new Image();
                       Img.src="img/enemy_duck.png";
@@ -357,7 +357,7 @@
                   
                       break;
                   
-                  case 1:                //·É»ú
+                  case 1:                //é£æœº
 
                       var Img=new Image();
                       Img.src="img/enemy_fly.png";
@@ -368,7 +368,7 @@
                   }
                   
                       break;
-                   case 2:                //Öí
+                   case 2:                //çŒª
 
 
                       var Img=new Image();
@@ -384,7 +384,7 @@
              }
            }
           
-          //»­³ö±¬Õ¨
+          //ç”»å‡ºçˆ†ç‚¸
           function darwBoom(boom){
                
                  var img=new Image();
@@ -395,7 +395,7 @@
                      
                  }
            }
-          //»­³öµĞÈË×Óµ¯¶ÔÏó
+          //ç”»å‡ºæ•Œäººå­å¼¹å¯¹è±¡
           function darwEnemyBullet(enemyBullet){
                 
              if(enemyBullet.isLive){
@@ -407,7 +407,7 @@
                 enemyBullet.run();
              }
           }
-          //»­³öÉúÃü
+          //ç”»å‡ºç”Ÿå‘½
           function darwLife(life){
 
 
@@ -421,7 +421,7 @@
             }
 
           }
-          //»­³öboss
+          //ç”»å‡ºboss
           function darwBoss(boss){
                 if(boss!=null){
                 var img=new Image();
@@ -435,7 +435,7 @@
          
 
           }
-           //»­³öboss×Óµ¯
+           //ç”»å‡ºbosså­å¼¹
           function darwBulletboss(bulletboss){
                 if(bulletboss.isLive!=false){
                 var img=new Image();
@@ -448,7 +448,10 @@
          
 
           }
-          function isBullet(){                                   //ÅĞ¶Ï»÷ÖĞ×Óµ¯µĞÈË
+
+
+
+          function isBullet(){                                   //åˆ¤æ–­å‡»ä¸­å­å¼¹æ•Œäºº
               
               for(var i=0;i<thisBullets.length;i++){
                var thisBullet=thisBullets[i];
@@ -519,12 +522,12 @@
               }
           } 
 
-          //ÅĞ¶ÏµĞÈË×²µ½±¾·É»ú
+          //åˆ¤æ–­æ•Œäººæ’åˆ°æœ¬é£æœº
           function isEnemyPlane(){
                 for(var i=0;i<enemys.length;i++){
                  var enemy=enemys[i];
                   if(enemy.isLive){
-                       switch(enemy.type){                                        //¸ù¾İ²»Í¬µÄµĞÈË ÊµÀı²»Í¬Î»ÖÃµÄ×Óµ¯
+                       switch(enemy.type){                                        //æ ¹æ®ä¸åŒçš„æ•Œäºº å®ä¾‹ä¸åŒä½ç½®çš„å­å¼¹
                         case 0:             
                            if(enemy.x>=thisPlane.x-27&&enemy.x<=thisPlane.x+20&&enemy.y>=thisPlane.y-20.5&&enemy.y<=thisPlane.y+40){
 
@@ -571,7 +574,7 @@
                  }
                }
           }
-             //ÅĞ¶ÏµĞÈË×Óµ¯»÷ÖĞ±¾·É»ú
+             //åˆ¤æ–­æ•Œäººå­å¼¹å‡»ä¸­æœ¬é£æœº
           function isEnemy(){
             for(var i=0;i<enemyBullets.length;i++){
               var enemyBullet=enemyBullets[i];
@@ -587,7 +590,7 @@
             }
 
           }
-          //ÅĞ¶Ïboss×Óµ¯´òµ½±¿·É»ú
+          //åˆ¤æ–­bosså­å¼¹æ‰“åˆ°ç¬¨é£æœº
           function isbbt(){
             for(var i=0;i<bulletbosss.length;i++){
               var bulletboss=bulletbosss[i];
@@ -606,7 +609,7 @@
             }
 
           }
-          //ÅĞ¶Ïbossµ½±¿·É»ú
+          //åˆ¤æ–­bossåˆ°ç¬¨é£æœº
           function isb(){
             
               
@@ -624,7 +627,7 @@
                   }
 
           }
-          function isBulletboss(){                                   //ÅĞ¶Ï»÷ÖĞ×Óµ¯boss
+          function isBulletboss(){                                   //åˆ¤æ–­å‡»ä¸­å­å¼¹boss
               if(boss!=null){
               for(var i=0;i<thisBullets.length;i++){
                var thisBullet=thisBullets[i];
@@ -643,7 +646,7 @@
               }
              }
            }
-          function plan(){         //ÓÎÏ·½ø¶È
+          function plan(){         //æ¸¸æˆè¿›åº¦
                 if(hitboss==100){
                     var over=document.getElementById("over");
                     over.style.display="block";
@@ -652,8 +655,8 @@
                     can1.style.display="none"; 
                    
                     clearInterval(c);
-                    document.getElementById("b").innerText="µÃ·Ö£º"+((hit*20)-(nothit*5));
-                    document.getElementById("c").innerText="¹§Ï²£¬´òÍ¨¹ØÀ²";
+                    document.getElementById("b").innerText="å¾—åˆ†ï¼š"+((hit*20)-(nothit*5));
+                    document.getElementById("c").innerText="æ­å–œï¼Œæ‰“é€šå…³å•¦";
                  }
                 if(lifes.length==0){
                     var over=document.getElementById("over");
@@ -662,17 +665,17 @@
                     can1.style.display="none"; 
                       
                     clearInterval(c);
-                    document.getElementById("b").innerText="µÃ·Ö£º"+((hit*20)-(nothit*5));
+                    document.getElementById("b").innerText="å¾—åˆ†ï¼š"+((hit*20)-(nothit*5));
                   }
            }
-          //ÓÎÏ·ÄÑ¶Èº¯Êı                 //Èı¸öÓÎÏ·ÄÑ¶È
+          //æ¸¸æˆéš¾åº¦å‡½æ•°                 //ä¸‰ä¸ªæ¸¸æˆéš¾åº¦
           function difficulty(){
-              if(hit==15){                                   //hit=15µÄÊ±ºò   ±³¾°Êı¶È¼Ó¿ì
-              time=700;                           //¸ü¸ÄµĞÈË³öÏÖµÄÊ±¼ä
+              if(hit==15){                                   //hit=15çš„æ—¶å€™   èƒŒæ™¯æ•°åº¦åŠ å¿«
+              time=700;                           //æ›´æ”¹æ•Œäººå‡ºç°çš„æ—¶é—´
               bg1.speed=2;
               bg2.speed=2;
               }
-              if(hit==100){                                    //hit=40µÄÊ±ºò   ±³¾°Êı¶È¼Ó¿ì
+              if(hit==100){                                    //hit=40çš„æ—¶å€™   èƒŒæ™¯æ•°åº¦åŠ å¿«
               time=400;
               bg1.speed=3;
               bg2.speed=3;
@@ -687,48 +690,62 @@
            }
           function loic(){
                  
-                 isBullet();                                     //×Óµ¯»÷ÖĞµĞÈË
-                 isEnemyPlane();                                   //µĞÈË×²µ½±¿·É»ú
-                 isEnemy();                                        //×Óµ¯´òµ½±¾·É»ú
-                 isbbt();                                           //boss×Óµ¯´òµ½±¿·É»ú
-                 isb();                                           //bossµ½±¿·É»ú
-                 isBulletboss();                                 //×Óµ¯´òµ½boss
+                 isBullet();                                     //å­å¼¹å‡»ä¸­æ•Œäºº
+                 isEnemyPlane();                                   //æ•Œäººæ’åˆ°ç¬¨é£æœº
+                 isEnemy();                                        //å­å¼¹æ‰“åˆ°æœ¬é£æœº
+                 isbbt();                                           //bosså­å¼¹æ‰“åˆ°ç¬¨é£æœº
+                 isb();                                           //bossåˆ°ç¬¨é£æœº
+                 isBulletboss();                                 //å­å¼¹æ‰“åˆ°boss
                  plan();
                 
                  difficulty();
-                  g();                          //Çå³ıÊı×é
+                  g();                          //æ¸…é™¤æ•°ç»„
                    
           }      
-             //Ë¢ĞÂµØÍ¼½çÃæ
+             //åˆ·æ–°åœ°å›¾ç•Œé¢
           function RefreshMap(){
-              cxt.clearRect(0,0,400,600);             
-              outbg();              //»­±³¾°Í¼Æ¬ºÍÅĞ¶Ï                  
-              darwthisPlane();//»­±¾·É»ú
-              for(var i=0;i<thisBullets.length;i++){                                          //»¯×Óµ¯
+              // cxt.clearRect(0,0,400,600);             
+              outbg();              //ç”»èƒŒæ™¯å›¾ç‰‡å’Œåˆ¤æ–­                  
+              darwthisPlane();//ç”»æœ¬é£æœº
+              for(var i=0;i<thisBullets.length;i++){                                          //åŒ–å­å¼¹
               darwThisBullet(thisBullets[i]);
               }
-              for(var i=0;i<enemys.length;i++){                                                    //»­µĞÈË
+              for(var i=0;i<enemys.length;i++){                                                    //ç”»æ•Œäºº
               darwenemy(enemys[i]);
 
               }
-              for(var i=0;i<booms.length;i++){                                              //»­Õ¨µ¯
+              for(var i=0;i<booms.length;i++){                                              //ç”»ç‚¸å¼¹
                       darwBoom(booms[i]);
               }
-              for(var i=0;i<enemyBullets.length;i++){                                       //»­µĞÈË×Óµ¯                    
+              for(var i=0;i<enemyBullets.length;i++){                                       //ç”»æ•Œäººå­å¼¹                    
 
                      darwEnemyBullet(enemyBullets[i]);   
               }    
-              for(var i=0;i<lifes.length;i++){                                             //»­ÉúÃü
+              for(var i=0;i<lifes.length;i++){                                             //ç”»ç”Ÿå‘½
                      darwLife(lifes[i]);    
               }
 
-              for(var i=0;i<bulletbosss.length;i++){                                             //»­ÉúÃü
-                     darwBulletboss(bulletbosss[i]);            //»­³öbulletboss 
+              for(var i=0;i<bulletbosss.length;i++){                                             //ç”»ç”Ÿå‘½
+                     darwBulletboss(bulletbosss[i]);            //ç”»å‡ºbulletboss 
               }
+
               if(boss!=null){
-              darwBoss(boss); }                                                             //»­³öboss
-              loic();                                                                      //Âß¼­ÅĞ¶Ïº¯Êı
-              document.getElementById("a").innerText="»÷ÖĞµĞÈËÊı£º"+hit+"   "+"ÌÓÅÜµĞÈËÊı£º"+nothit+"   "+"»÷ÖĞboss£º"+hitboss+"   "+"µÃ·Ö£º"+((hit*20)-(nothit*5));
+              darwBoss(boss); }                                                             //ç”»å‡ºboss
+              loic();                                                                      //é€»è¾‘åˆ¤æ–­å‡½æ•°
+              document.getElementById("a").innerText="å‡»ä¸­æ•Œäººæ•°ï¼š"+hit+"   "+"é€ƒè·‘æ•Œäººæ•°ï¼š"+nothit+"   "+"å‡»ä¸­bossï¼š"+hitboss+"   "+"å¾—åˆ†ï¼š"+((hit*20)-(nothit*5));
+           
+              if (s) {
+                thisPlane.y=thisPlane.y-10;
+              }
+              if (x) {
+                thisPlane.y=thisPlane.y+10;
+              }
+              if (z) {
+                thisPlane.x=thisPlane.x-10;
+              }
+              if (y) {
+                thisPlane.x=thisPlane.x+10;
+              }
            }
            function getonmousemove(){
                  var bbox = can1.getBoundingClientRect();
@@ -742,5 +759,39 @@
 
            }
            
-          
+          var s=false;
+          function S(){
+            s=true;
+            thisPlane.y=thisPlane.y-10;
+          }
+          function ST(){
+           s=false;
+          }
+          var x=false;
+          function X(){
+            x=true;
+            thisPlane.y=thisPlane.y+10;
+          }
+          function XT(){
+            x=false;
+          }
+          var z=false;
+          function Z(){
+            z=true;
+            thisPlane.x=thisPlane.x-10;
+          }
+          function ZT(){
+            z=false;
+          }
+          var y=false;
+          function Y(){
+            y=true;
+            thisPlane.x=thisPlane.x+10;
+          }
+          function YT(){
+            y=false;
+          }
+
+         
+
           var c=null;
